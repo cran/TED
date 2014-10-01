@@ -36,43 +36,49 @@
 #' #   An artificial example
 #' ##################################
 #' set.seed(123)
-#' n=128
-#' types=c('box','rc','cr','sine')
-#' shapes=matrix(NA,20,n)
+#' n <- 128
+#' types <- c('box','rc','cr','sine')
+#' shapes <- matrix(NA,20,n)
 #' for (i in 1:20){
-#'   shapes[i,]=cbfs(type=types[sample(1:4,1)])
+#'   shapes[i,] <- cbfs(type=types[sample(1:4,1)])
 #' }
-#' whitenoise=ts2mat(rnorm(128*20),128)
+#' whitenoise <- ts2mat(rnorm(128*20),128)
 #' # generate x which randomly combine the four types of events with each two of them 
-#' # seperated by noise
-#' x=c(rnorm(128),t(cbind(shapes,whitenoise)))
-#' # plot(x,ty='l')
+#' # separated by noise
+#' x <- c(rnorm(128),t(cbind(shapes,whitenoise)))
+#' \dontrun{
+#' plot(x,ty='l')
+#' }
 #' # specify a sliding window size
-#' w=128
+#' w <- 128
 #' # specify a significant level
-#' alpha=0.05
+#' alpha <- 0.05
 #' # event detection
-#' # events=eventDetection(x,w,'white',parallel=FALSE,alpha, 'art')
+#' \dontrun{
+#' events <- eventDetection(x,w,'white',parallel=FALSE,alpha, 'art')
 #' # clustering
-#' # cc=eventCluster(events,4)
-#' # myclkm=cc$cl
+#' cc <- eventCluster(events,4)
+#' myclkm <- cc$cl
+#' }
 #' ##################################
 #' #   CASES-99 dataset (9.5m)
 #' ##################################
 #' # a sliding window length chosen by the user
-#' w=120; 
+#' w <- 120 
 #' # specify a significant level
-#' alpha=0.05
+#' alpha <- 0.05
 #' data(CASES99)
-#' # CASESevents=eventDetection(CASES99,w,'red',parallel=FALSE,0.05,'real')
-#' # cc=eventCluster(CASESevents,3)
-#' # cc$center
-#' # myclkm=cc$cl
+#' \dontrun{
+#' CASESevents <- eventDetection(CASES99,w,'red',parallel=FALSE,0.05,'real')
+#' cc <- eventCluster(CASESevents,3)
+#' cc$center
+#' myclkm <- cc$cl
 #' # visualise the clustering in 2-dimension PCA space
-#' # pc.cr=cc$pca
-#' # pca.dim1 <- pc.cr$scores[,1]
-#' # pca.dim2 <- pc.cr$scores[,2]
-#' # plot(pca.dim1,pca.dim2,col=myclkm+1,main='PCA plots for k-means clustering',pch=16)
+#' pc.cr <- cc$pca
+#' pca.dim1 <- pc.cr$scores[,1]
+#' pca.dim2 <- pc.cr$scores[,2]
+#' plot(pca.dim1,pca.dim2,col=myclkm+1,main='PCA plots for k-means clustering',pch=16)
+#' }
 
 
 eventCluster <- function(events, k0) {

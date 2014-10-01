@@ -47,12 +47,14 @@
 #' }
 #' whitenoise=ts2mat(rnorm(128*20),128)
 #' # generate x which randomly combine the four types of events with each two of them 
-#' # seperated by noise
+#' # separated by noise
 #' x=c(rnorm(128),t(cbind(shapes,whitenoise)))
 #' plot(x,ty='l')
 #' # specify a sliding window size and significant level
-#' # w=128; alpha=0.05
-#' # events=eventDetection(x,w,'white',parallel=FALSE,alpha,'art')
+#' \dontrun{
+#' w=128; alpha=0.05
+#' events=eventDetection(x,w,'white',parallel=FALSE,alpha,'art')
+#' }
 #' ##################################
 #' #   2nd art eg (red noise)
 #' ##################################
@@ -68,9 +70,11 @@
 #'     cbfs_red('sine'),arima.sim(list(order = c(1,0,0),ar=coeff),n=1000,sd=s),
 #'     arima.sim(list(order = c(1,0,0),ar=0.8),n=1100,sd=4))
 #' # specify a sliding window size and significant level
-#' # w=128; alpha=0.05
+#' \dontrun{
+#' w=128; alpha=0.05
 #' # event detection
-#' # events=eventDetection(x,w,'red',parallel=FALSE,alpha,'art')
+#' events=eventDetection(x,w,'red',parallel=FALSE,alpha,'art')
+#' }
 #' ##################################
 #' #   CASES-99 dataset (9.5m)
 #' ##################################
@@ -79,8 +83,10 @@
 #' # specify a significant level
 #' alpha=0.05
 #' # event detection from CASES99 data
-#' # data(CASES99)
-#' # CASESevents=eventDetection(CASES99,w,'red',parallel=FALSE,alpha,'real')
+#' \dontrun{
+#' data(CASES99)
+#' CASESevents=eventDetection(CASES99,w,'red',parallel=FALSE,alpha,'real')
+#' }
 
 eventDetection <- function(x, w, noiseType = c("white", "red"), parallel = FALSE, alpha = 0.05, data = c("art", "real")) {
     noiseType <- match.arg(noiseType)

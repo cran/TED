@@ -27,17 +27,19 @@
 #' }
 #' whitenoise=ts2mat(rnorm(128*20),128)
 #' # generate x which randomly combine the four types of events with each two of them 
-#' # seperated by noise
+#' # separated by noise
 #' x=c(rnorm(128),t(cbind(shapes,whitenoise)))
 #' plot(x,ty='l')
 #' w=128; alpha=0.05
 #' # event detection
-#' # events=eventDetection(x,w,'white',FALSE,alpha,'art')
-#' # clustering events
-#' # cc=eventCluster(events,4)
-#' # myclkm=cc$cl
+#' \dontrun{
+#' events=eventDetection(x,w,'white',FALSE,alpha,'art')
+#' clustering events
+#' cc=eventCluster(events,4)
+#' myclkm=cc$cl
 #' # plot the clustered events
-#' # plotevents(events,cluster=TRUE, myclkm)
+#' plotevents(events,cluster=TRUE, myclkm)
+#' }
 #' ##################################
 #' #   2nd art eg (red noise)
 #' ##################################
@@ -53,9 +55,11 @@
 #'     arima.sim(list(order = c(1,0,0),ar=0.8),n=1100,sd=4))
 #' w=128; alpha=0.05
 #' # event detection
-#' # events=eventDetection(x,w,'red',parallel=FALSE,alpha,'art')
+#' \dontrun{
+#' events=eventDetection(x,w,'red',parallel=FALSE,alpha,'art')
 #' # plot events without clustering
-#' # plotevents(events)
+#' plotevents(events)
+#' }
 plotevents <- function(events, cluster = FALSE, mycl, ...) {
     x = events$x
     a = events$start

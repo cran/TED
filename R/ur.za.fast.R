@@ -61,8 +61,8 @@ ur.za.fast <- function(y, model = c("intercept", "trend", "both"), lag = NULL) {
         roll <- function(z) {
             du <- c(rep(0, z), rep(1, (n - z)))
             rollmat <- cbind(datmat, du)
-            roll.reg <- tryCatch(fastLmPure(rollmat[2:dim(rollmat)[1], 2:dim(rollmat)[2]], rollmat[2:dim(rollmat)[1], 1]))
-            if (class(roll.reg) != "list") {
+            roll.reg <- tryCatch(fastLmPure(rollmat[2:dim(rollmat)[1], 2:dim(rollmat)[2]], rollmat[2:dim(rollmat)[1], 1]),error=function(e){1})
+            if ( class(roll.reg)!='list') {
                 roll.reg <- coef(summary(lm(as.data.frame(rollmat))))
                 (roll.reg[2, 1] - 1)/roll.reg[2, 2]
             } else {
@@ -76,8 +76,9 @@ ur.za.fast <- function(y, model = c("intercept", "trend", "both"), lag = NULL) {
         roll <- function(z) {
             dt <- c(rep(0, z), 1:(n - z))
             rollmat <- cbind(datmat, dt)
-            roll.reg <- tryCatch(fastLmPure(rollmat[2:dim(rollmat)[1], 2:dim(rollmat)[2]], rollmat[2:dim(rollmat)[1], 1]))
-            if (class(roll.reg) != "list") {
+            roll.reg <- tryCatch(fastLmPure(rollmat[2:dim(rollmat)[1], 2:dim(rollmat)[2]], 
+                                            rollmat[2:dim(rollmat)[1], 1]),error=function(e){1})
+            if ( class(roll.reg)!='list') {
                 roll.reg <- coef(summary(lm(as.data.frame(rollmat))))
                 (roll.reg[2, 1] - 1)/roll.reg[2, 2]
             } else {
@@ -92,8 +93,8 @@ ur.za.fast <- function(y, model = c("intercept", "trend", "both"), lag = NULL) {
             du <- c(rep(0, z), rep(1, (n - z)))
             dt <- c(rep(0, z), 1:(n - z))
             rollmat <- cbind(datmat, du, dt)
-            roll.reg <- tryCatch(fastLmPure(rollmat[2:dim(rollmat)[1], 2:dim(rollmat)[2]], rollmat[2:dim(rollmat)[1], 1]))
-            if (class(roll.reg) != "list") {
+            roll.reg <- tryCatch(fastLmPure(rollmat[2:dim(rollmat)[1], 2:dim(rollmat)[2]], rollmat[2:dim(rollmat)[1], 1]),error=function(e){1})
+            if ( class(roll.reg)!='list') {
                 roll.reg <- coef(summary(lm(as.data.frame(rollmat))))
                 (roll.reg[2, 1] - 1)/roll.reg[2, 2]
             } else {

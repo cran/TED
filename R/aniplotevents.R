@@ -27,7 +27,9 @@
 #' # generate an artificial time series
 #' x=c(rnorm(128),cbfs(type='box'),rnorm(128),cbfs(type='rc'),rnorm(128))
 #' # generate a gif file to show the event detection process
-#' # aniplotevents(x,w=128,noiseType='white',outdir=getwd())
+#' \dontrun{
+#' aniplotevents(x,w=128,noiseType='white',outdir=getwd())
+#' }
 
 aniplotevents <- function(x, w, noiseType = c("white", "red"), alpha = 0.05, main = "Animation plot of events", xlab = "t", ylab = "x", 
     movie.name = "animation.gif", interval = 0.05, ani.width = 1000, ani.height = 400, outdir = getwd()) {

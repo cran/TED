@@ -40,14 +40,16 @@
 #' }
 #' whitenoise=ts2mat(rnorm(128*20),128)
 #' # generate x which randomly combine the four types of events with each two of them 
-#' # seperated by noise
+#' # separated by noise
 #' x=c(t(cbind(shapes,whitenoise)))
 #' plot(x,ty='l')
 #' w=128
 #' # execute loops sequentially
 #' tests=noiseTests(x,w,'white',parallel=FALSE)
 #' # execute loops in parallel using doMC package (for non-Windows users)
-#' # tests=noiseTests(x,w,'white',parallel=TRUE)
+#' \dontrun{
+#' tests=noiseTests(x,w,'white',parallel=TRUE)
+#' }
 noiseTests <- function(x, w, noiseType = c("white", "red"), parallel = FALSE) {
     noiseType <- match.arg(noiseType)
     x = as.numeric(x)
