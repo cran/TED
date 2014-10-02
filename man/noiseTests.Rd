@@ -49,7 +49,9 @@ x=c(t(cbind(shapes,whitenoise)))
 plot(x,ty='l')
 w=128
 # execute loops sequentially
+\dontrun{
 tests=noiseTests(x,w,'white',parallel=FALSE)
+}
 # execute loops in parallel using doMC package (for non-Windows users)
 \dontrun{
 tests=noiseTests(x,w,'white',parallel=TRUE)

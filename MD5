@@ -1,5 +1,5 @@
-d19f8ffa90da015f347bb50afadacc03 *DESCRIPTION
-caacafd93f7a8f0fd6f536e27fb094a2 *NAMESPACE
+c06e8b9bb5ef45e64e76f2cfc4f4d92a *DESCRIPTION
+90d789bb875b8557c4c363f62d0b1bcf *NAMESPACE
 27718bedfc3eb8126150a03e2551d7e5 *R/aniplotevents.R
 47ae816cfe48f9ff4a12a9aa6ceb50d1 *R/cbfs.R
 a667a9b564c61080a5409e9c09a86139 *R/cbfs_red.R
@@ -8,7 +8,7 @@ a667a9b564c61080a5409e9c09a86139 *R/cbfs_red.R
 e1a87c3e0e437567744911103a26f6b0 *R/eventDetection.R
 e5ece99c242a73f91bf00708f0513139 *R/eventExtraction.R
 d26e1bf54c2fbd368918f7f174b39b24 *R/measures.R
-deee44a11f3c39ca923e41fd8cf88401 *R/noiseTests.R
+546193fe8917bf303b084c7a1c02dbe3 *R/noiseTests.R
 89c846dc71f684a49f1836fad175047e *R/plotevents.R
 8c394f49dc4607f82275c041f883216e *R/ts2mat.R
 422da3be928056ebf8ad528e279d87fa *R/ur.za.fast.R
@@ -23,8 +23,8 @@ e386c6fe04884b6a5c52cbaa68db9d67 *man/cbfs.Rd
 c6de70ba02d00c9257fdd44c9a22a43e *man/eventDetection.Rd
 68d67bb39b5d165acd5602a02df8a315 *man/eventExtraction.Rd
 962db104242ce048eceb54410ed6a66e *man/measures.Rd
-24a9aa6d11016ccce35c8d81b5037dde *man/noiseTests.Rd
+829b3a76ad308674f743146bbd091bdc *man/noiseTests.Rd
 4da0cbc631266facd20bd7f8fa7920ea *man/plotevents.Rd
-ef737dd52f6fdc24432f98c61f1063ff *man/ted-package.Rd
+29c7059f9491ec82ba87c72bc666f91f *man/ted-package.Rd
 1cb60ffa76fb1f562242fa4f77002dc0 *man/ts2mat.Rd
 6a6b5b8a47497d6f364a8781270153c1 *man/ur.za.fast.Rd

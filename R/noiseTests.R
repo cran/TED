@@ -45,7 +45,9 @@
 #' plot(x,ty='l')
 #' w=128
 #' # execute loops sequentially
+#' \dontrun{
 #' tests=noiseTests(x,w,'white',parallel=FALSE)
+#' }
 #' # execute loops in parallel using doMC package (for non-Windows users)
 #' \dontrun{
 #' tests=noiseTests(x,w,'white',parallel=TRUE)
@@ -57,7 +59,7 @@ noiseTests <- function(x, w, noiseType = c("white", "red"), parallel = FALSE) {
     N = length(x) - w + 1
     l = round(log(w))
     if (parallel) {
-        registerDoMC(cores = 8)
+        doMC::registerDoMC(cores = 8)
         if (noiseType == "white") {
             i <- NULL
             testsPvalues = foreach(i = 1:N, .combine = c) %dopar% {
